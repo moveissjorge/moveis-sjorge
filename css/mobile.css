@@ -1,0 +1,183 @@
+/* =====================================================================
+   Móveis S. Jorge — Versão telemóvel e tablet
+   Carregado depois de style.css. Mantém a linguagem do site em PC:
+   serif Cormorant com última linha em itálico, Manrope no texto,
+   botões só com linha fina, paleta carvalho/bege/latão, revelação suave.
+   ===================================================================== */
+
+/* ---------- TABLET (≤1024px) ---------- */
+@media (max-width:1024px){
+  :root{--pad:32px;--sec-v:92px;--sec-v-sm:72px}
+  .grid-2{gap:44px!important}
+  .svcp-head{gap:22px}
+}
+
+/* ---------- TELEMÓVEL (≤760px) ---------- */
+@media (max-width:760px){
+  :root{--pad:22px;--nav-h:64px;--sec-v:76px;--sec-v-sm:60px}
+  html{-webkit-tap-highlight-color:transparent}
+  body{font-size:16px}
+  .container{padding-left:var(--pad)!important;padding-right:var(--pad)!important}
+  .fade-up{transform:translateY(18px)}
+
+  /* Tipografia — uma escala única */
+  .eyebrow,.pw-ey,.p3-ey,.svcp-ey,.gv-ey,.cat-ey,.exp-eyebrow,.hero-ey,.cv-ey,.cat-label{
+    font-size:11.5px!important;letter-spacing:.26em!important;margin-bottom:16px!important}
+  .h-xl,.pw-ttl,.p3-h,.svcp-h,.gv-h,.pqi-h{
+    font-size:clamp(30px,8.6vw,38px)!important;line-height:1.12!important;letter-spacing:-.015em!important;text-wrap:balance}
+  .pw-ttl span,.pw-ttl em,.pw-sub span{white-space:normal!important}
+  .body-p,.p3-p,.pw-sub,.pqi-p,.gve-d,.svcp-d,.pa-p,.lj-addr,.pq-d,.exp-sub{
+    font-size:16px!important;line-height:1.7!important}
+  .ixc-btn,.p3-btn,.pa-lnk,.svcp-top-link,.exp-cta,.hero-quiet,.hero-lnk,.lj-tel,.kz5-btn{
+    min-height:44px;display:inline-flex!important;align-items:flex-end;font-size:19px!important}
+
+  /* Navegação */
+  .nav{display:flex!important;align-items:center;justify-content:space-between;height:var(--nav-h)!important;padding:0 var(--pad)!important}
+  .nav-links,.nav-right-link,.nav-cta{display:none!important}
+  .nav-logo{justify-self:auto!important}
+  .logo-img{height:30px!important;width:auto}
+  .nav-toggle{display:flex!important;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;margin-right:-10px;padding:10px}
+  .nav-toggle span{display:block;width:24px;height:1px;margin:0!important;transition:transform .4s var(--ease),opacity .3s}
+  .nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle.is-open span:nth-child(2){opacity:0}
+  .nav-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-panel{background:var(--ivory)!important;padding:calc(var(--nav-h) + 28px) var(--pad) 36px!important;display:flex!important;flex-direction:column;justify-content:space-between}
+  .nav-panel-links{display:flex!important;flex-direction:column;gap:0!important;counter-reset:np}
+  .nav-panel-link{counter-increment:np;display:flex!important;align-items:baseline;gap:16px;padding:14px 0!important;border-bottom:1px solid var(--line);
+    font-family:var(--sr)!important;font-weight:300!important;font-size:clamp(28px,8vw,34px)!important;letter-spacing:-.01em!important;text-transform:none!important;color:var(--brown)!important;
+    opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .nav-panel-link::before{content:counter(np,decimal-leading-zero);font-family:var(--ss);font-size:11px;font-weight:600;letter-spacing:.2em;color:#8A6E3F}
+  .nav-panel-link.active{color:#8A6E3F!important}
+  .nav-panel.is-open .nav-panel-link{opacity:1;transform:none}
+  .nav-panel.is-open .nav-panel-link:nth-child(2){transition-delay:.05s}
+  .nav-panel.is-open .nav-panel-link:nth-child(3){transition-delay:.1s}
+  .nav-panel.is-open .nav-panel-link:nth-child(4){transition-delay:.15s}
+  .nav-panel.is-open .nav-panel-link:nth-child(5){transition-delay:.2s}
+  .nav-panel.is-open .nav-panel-link:nth-child(6){transition-delay:.25s}
+  .nav-panel.is-open .nav-panel-link:nth-child(7){transition-delay:.3s}
+  .nav-panel-cta{align-self:flex-start;background:none!important;border:0!important;border-bottom:1px solid rgba(46,37,25,.45)!important;border-radius:0!important;
+    padding:0 0 9px!important;color:var(--brown)!important;font-family:var(--sr)!important;font-size:21px!important;letter-spacing:.02em!important;text-transform:none!important;margin-top:32px}
+
+  /* Capas */
+  .hero{min-height:76vh!important;min-height:76svh!important;padding:calc(var(--nav-h) + 32px) var(--pad) 40px!important;align-items:flex-end!important;text-align:left!important}
+  #hero.hero{min-height:100vh!important;min-height:100svh!important}
+  .hero-ovl{background:linear-gradient(180deg,rgba(17,16,14,.42) 0%,rgba(17,16,14,.16) 40%,rgba(17,16,14,.62) 100%)!important}
+  .hero-c,.cv-panel{text-align:left!important;margin:0!important;max-width:none!important}
+  .hero-h1{font-size:clamp(46px,13.5vw,62px)!important;line-height:1!important}
+  .hero-headline{font-size:clamp(36px,10.6vw,48px)!important;line-height:1.06!important;text-align:left!important}
+  .hero-headline span,.hero-headline em{display:block}
+  .cv-rule{margin:18px 0!important}
+  .hero-sub,.hero-lede{font-size:16px!important;line-height:1.65!important;max-width:34ch!important;margin-left:0!important;margin-right:0!important}
+  .cv-aside,.hero-cta-bar,.hero-btns{justify-content:flex-start!important;text-align:left!important}
+
+  /* Imagem + texto (Início e Sobre Nós) */
+  .grid-2{grid-template-columns:1fr!important;gap:32px!important}
+  .grid-2>.media{margin:0 calc(-1 * var(--pad))!important;aspect-ratio:4/4.6!important}
+
+  /* Carrosséis com deslizar (projetos, serviços, lojas, catálogos) */
+  #exp-track,.svcp-grid,.lj-grid,.cat-row{
+    display:flex!important;flex-direction:row!important;gap:12px!important;overflow-x:auto;scroll-snap-type:x mandatory;
+    margin:0 calc(-1 * var(--pad))!important;padding:0 var(--pad)!important;scroll-padding:0 var(--pad);scrollbar-width:none;
+    background:none!important;height:auto!important;max-width:none!important;grid-template-columns:none!important}
+  #exp-track::-webkit-scrollbar,.svcp-grid::-webkit-scrollbar,.lj-grid::-webkit-scrollbar,.cat-row::-webkit-scrollbar{display:none}
+  #exp-track>*,.svcp-grid>*,.lj-grid>*,.cat-row>*{scroll-snap-align:start;flex:0 0 82%!important;min-width:0}
+
+  /* Início — projetos */
+  .exp-section{padding:var(--sec-v) 0!important}
+  .exp-header{margin-bottom:32px!important;text-align:left!important}
+  .exp-title{font-size:22px!important;letter-spacing:.12em!important}
+  #exp-track .exp-card{width:auto!important;height:auto!important;aspect-ratio:4/5;border-radius:0!important}
+  #exp-track .exp-overlay{opacity:1!important;padding:24px 22px!important}
+  .exp-footer{text-align:left!important;margin-top:28px!important;padding:0 var(--pad)}
+
+  /* Início — serviços */
+  .svcp{padding:var(--sec-v) 0!important}
+  .svcp-head{display:flex!important;flex-direction:column;align-items:flex-start!important;margin-bottom:32px!important}
+  .svcp-panel{position:relative;aspect-ratio:4/5;min-height:0!important}
+  .svcp-grid{padding:0 var(--pad)!important}
+  .svcp-body{padding:26px 22px!important}
+  .svcp-t{font-size:clamp(24px,7vw,28px)!important}
+
+  /* Sobre Nós */
+  .figs{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin-top:32px!important;padding-top:24px!important}
+  .figs-n{font-size:clamp(26px,7.6vw,32px)!important}
+  .figs-l{font-size:11px!important;letter-spacing:.18em!important}
+  .gv,.gve{padding:var(--sec-v) 0!important}
+  .gve-head{margin-bottom:28px!important;text-align:left!important}
+  .gve-cols{grid-template-columns:1fr!important;gap:0!important}
+  .gve-cols>div{padding:22px 0;border-top:1px solid rgba(245,241,233,.18)}
+  .gve-t{font-size:26px!important;margin-bottom:8px!important}
+  .lj-head{grid-template-columns:1fr!important;gap:18px!important;margin-bottom:32px!important}
+  .lj-ph{aspect-ratio:4/3}
+  .lj-city{font-size:24px!important}
+
+  /* Serviços */
+  .pqi{padding:44px 0 24px!important}
+  .pqi-in{grid-template-columns:1fr!important;gap:14px!important}
+  .pq{padding:24px 0 var(--sec-v)!important}
+  .pq-grid{grid-template-columns:1fr!important;gap:10px!important}
+  .pq-p{aspect-ratio:16/10!important}
+  .pq-t{min-height:0!important;aspect-ratio:auto!important;padding:28px 24px!important}
+  .pq-name{font-size:26px!important}
+  .section--dark .h-xl{font-size:24px!important}
+
+  /* Projetos */
+  .p3,.kz7{padding:var(--sec-v) 0!important}
+  .p3-side{max-width:none!important}
+  .p3-row,.kz7-row{margin-top:28px!important}
+  .kz7-row{grid-auto-columns:78%!important;gap:12px!important}
+  .pa-list{display:flex;flex-direction:column;gap:44px}
+  .pa-row,.pa-row:nth-child(even){grid-template-columns:1fr!important;gap:20px!important;padding:0!important}
+  .pa-ph{order:0!important;aspect-ratio:4/4.4!important;margin:0 calc(-1 * var(--pad))}
+  .pa-name{font-size:32px!important}
+  .cat{padding:var(--sec-v) 0!important}
+  .cat-intro{text-align:left!important;margin:0 0 32px!important}
+  .cat-lede{font-size:22px!important;line-height:1.45!important}
+  .cat-row>*{flex-basis:72%!important}
+  .cat-fig,.cat-fig--a,.cat-fig--b,.cat-fig--c{margin:0!important;transform:none!important}
+
+  /* Progresso dos carrosséis */
+  .m-ctrl{display:grid!important}
+
+  /* Rodapé */
+  .footer{padding:56px 0 28px!important}
+  .footer-inner{padding:0 var(--pad)!important}
+  .footer-top{grid-template-columns:1fr 1fr!important;gap:36px 20px!important}
+  .footer-top>div:first-child,.footer-top>.fcol:last-child{grid-column:1/-1}
+  .fcol a{min-height:32px;display:flex;align-items:center}
+  .footer-bot{flex-direction:column!important;align-items:flex-start!important;gap:14px!important;text-align:left!important}
+
+  /* Galeria */
+  .gallery{padding:12px!important}
+  .gallery-nav{width:44px!important;height:44px!important;opacity:1!important}
+  .gallery-close{width:44px!important;height:44px!important}
+
+  /* Cookies */
+  .cookie{left:12px!important;right:12px!important;bottom:12px!important;max-width:none!important;padding:20px!important}
+  .cookie-btns{flex-wrap:wrap;gap:10px!important}
+  .cookie-btns .btn{min-height:44px;flex:1 1 auto}
+}
+
+/* Ecrãs muito estreitos */
+@media (max-width:380px){
+  :root{--pad:18px}
+  #exp-track>*,.svcp-grid>*,.lj-grid>*{flex-basis:86%!important}
+}
+
+.m-ctrl{display:none!important}
+@media (max-width:760px){.m-ctrl{display:grid!important}}
+
+@media (max-width:760px){.exp-section #exp-track,.svcp>.svcp-grid{margin-left:0!important;margin-right:0!important}}
+
+/* Telemóvel e tablet — texto primeiro, foto depois, fotos mais baixas */
+@media (max-width:980px){
+  .grid-2{display:flex!important;flex-direction:column!important;align-items:stretch!important}
+  .grid-2>.media{order:2!important;aspect-ratio:4/3!important;align-self:stretch!important;width:auto!important}
+  .grid-2>:not(.media){order:1!important}
+  .pq-p{aspect-ratio:16/9!important}
+}
+@media (max-width:900px){
+  .pa-row,.pa-row:nth-child(even){display:flex!important;flex-direction:column!important;gap:20px!important}
+  .pa-txt{order:1!important}
+  .pa-ph,.pa-row:nth-child(even) .pa-ph{order:2!important;aspect-ratio:4/3!important}
+}

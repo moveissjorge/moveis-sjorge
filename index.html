@@ -11,12 +11,14 @@
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
 
 <nav class="nav hero-top" id="main-nav" data-hero-transparent role="navigation" aria-label="Navegação principal">
   <div class="nav-links">
     <a class="nav-link" href="projetos.html">Projetos</a>
+    <a class="nav-link" href="projetos.html#cozinhas">Cozinhas</a>
     <a class="nav-link" href="projetos.html#propostas-3d">Projetos 3D</a>
     <a class="nav-link" href="servicos.html">Serviços</a>
   </div>
@@ -38,6 +40,7 @@
     <a class="nav-panel-link" href="sobre-nos.html">Sobre Nós</a>
     <a class="nav-panel-link" href="servicos.html">Serviços</a>
     <a class="nav-panel-link" href="projetos.html">Projetos</a>
+    <a class="nav-panel-link" href="projetos.html#cozinhas">Cozinhas</a>
     <a class="nav-panel-link" href="projetos.html#propostas-3d">Projetos 3D</a>
     <a class="nav-panel-link" href="sobre-nos.html#lojas">Contactos</a>
   </div>
@@ -91,7 +94,7 @@
     <p class="exp-sub">Cada um pensado com intenção, proporção e cuidado no detalhe.</p>
   </div>
 
-  <div class="exp-track" id="exp-track">
+  <div class="exp-track" id="exp-track" data-scroller="exp">
     <div class="exp-card exp-card--active" data-name="Raízes" data-href="projetos.html#raizes">
       <div class="media" style="width:100%;height:100%"><img src="assets/projetos/rz-2.jpg" alt="Sala de refeições do projeto Raízes" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="exp-overlay"><span class="exp-label">Projeto</span><span class="exp-name">Raízes</span></div>
@@ -104,6 +107,10 @@
       <div class="media" style="width:100%;height:100%"><img src="assets/projetos/refugio-1.jpg" alt="Estúdio do projeto Refúgio, no Porto" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></div>
       <div class="exp-overlay"><span class="exp-label">Projeto</span><span class="exp-name">Refúgio</span></div>
     </div>
+  </div>
+  <div class="kz7-ctrl m-ctrl" data-scroller-ctrl="exp" style="padding:0 var(--pad);margin-top:22px">
+    <span class="kz7-prog" aria-hidden="true"><i></i></span>
+    <div class="kz7-btns"><button class="kz7-arr" data-dir="-1" aria-label="Anterior">←</button><button class="kz7-arr" data-dir="1" aria-label="Seguinte">→</button></div>
   </div>
 
   <div class="exp-footer fade-up">
@@ -121,9 +128,9 @@
     <a class="svcp-top-link" href="servicos.html">Ver todos os serviços<span class="svcp-top-rule"></span></a>
   </div>
 
-  <div class="svcp-grid fade-up fade-up-delay1">
+  <div class="svcp-grid fade-up fade-up-delay1" data-scroller="svc">
 
-    <a class="svcp-panel" href="servicos.html">
+    <div class="svcp-panel" style="cursor:default">
       <div class="svcp-ph"><img src="assets/servicos/interiores.jpg" alt="Poltrona curva em tecido cru, mesa de apoio em madeira e oliveira em vaso" loading="lazy"></div>
       <div class="svcp-scrim" aria-hidden="true"></div>
       <div class="svcp-body">
@@ -131,9 +138,9 @@
         <h3 class="svcp-t">Projetos de<br>interiores</h3>
         <p class="svcp-d">Desenhamos o espaço à medida, com recurso a visualização 3D que revela cada detalhe antes da execução.</p>
       </div>
-    </a>
+    </div>
 
-    <a class="svcp-panel" href="servicos.html">
+    <div class="svcp-panel" style="cursor:default">
       <div class="svcp-ph"><img src="assets/servicos/cozinhas.jpg?v=2" alt="Cozinha por medida em tons claros com ilha e bancada em madeira" loading="lazy"></div>
       <div class="svcp-scrim" aria-hidden="true"></div>
       <div class="svcp-body">
@@ -141,18 +148,22 @@
         <h3 class="svcp-t">Mobiliário e cozinhas<br>por medida</h3>
         <p class="svcp-d">Peças e cozinhas adaptadas às dimensões e à utilização pretendida. Do planeamento à montagem.</p>
       </div>
-    </a>
+    </div>
 
-    <a class="svcp-panel" href="servicos.html">
+    <div class="svcp-panel" style="cursor:default">
       <div class="svcp-ph"><img src="assets/servicos/decoracao.jpg" alt="Jarra branca com hastes secas e velas sobre prateleira" loading="lazy"></div>
       <div class="svcp-scrim" aria-hidden="true"></div>
       <div class="svcp-body">
         <span class="svcp-n">03</span>
         <h3 class="svcp-t">Decoração e<br>acabamentos</h3>
-        <p class="svcp-d">Da iluminação aos cortinados, reunimos os pequenos detalhes que dão identidade ao ambiente.</p>
+        <p class="svcp-d">Da iluminação aos cortinados e papel de parede, reunimos os pequenos detalhes que dão identidade ao ambiente.</p>
       </div>
-    </a>
+    </div>
 
+  </div>
+  <div class="kz7-ctrl m-ctrl" data-scroller-ctrl="svc" style="padding:0 var(--pad);margin-top:22px">
+    <span class="kz7-prog" aria-hidden="true"><i></i></span>
+    <div class="kz7-btns"><button class="kz7-arr" data-dir="-1" aria-label="Anterior">←</button><button class="kz7-arr" data-dir="1" aria-label="Seguinte">→</button></div>
   </div>
 </section>
 

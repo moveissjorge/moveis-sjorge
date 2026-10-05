@@ -323,7 +323,7 @@
         gal.classList.add('is-open');
         active = gal;
         document.body.classList.add('is-locked');
-        if (gal.__show) gal.__show(0);
+        if (gal.__show) gal.__show(parseInt(trigger.dataset.index, 10) || 0);
       });
     });
 
@@ -479,4 +479,20 @@
   } else {
     boot();
   }
+})();
+
+/* Faixas com scroll — setas e progresso */
+(function(){
+  document.querySelectorAll('[data-scroller]').forEach(function(row){
+    var ctrl=document.querySelector('[data-scroller-ctrl="'+row.dataset.scroller+'"]');if(!ctrl)return;
+    var bar=ctrl.querySelector('.kz7-prog i'),cnt=ctrl.querySelector('.kz7-count'),items=row.children,n=items.length;
+    var pad=function(v){return (v<10?'0':'')+v};
+    function upd(){var max=row.scrollWidth-row.clientWidth;var p=max>0?row.scrollLeft/max:1;
+      var vis=Math.max(1,Math.round(row.clientWidth/(items[0].getBoundingClientRect().width||1)));
+      var w=Math.min(1,vis/n);bar.style.width=(w*100)+'%';bar.style.transform='translateX('+(p*(1-w)/w*100)+'%)';
+      var last=Math.min(n,Math.round(p*(n-vis))+vis);if(cnt)cnt.textContent=pad(last)+' — '+pad(n);
+      ctrl.querySelector('[data-dir="-1"]').disabled=row.scrollLeft<4;ctrl.querySelector('[data-dir="1"]').disabled=row.scrollLeft>max-4;}
+    ctrl.querySelectorAll('[data-dir]').forEach(function(b){b.addEventListener('click',function(){var step=items[0].getBoundingClientRect().width+parseFloat(getComputedStyle(row).columnGap||0);row.scrollBy({left:step*+b.dataset.dir,behavior:'smooth'})})});
+    row.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+  });
 })();
