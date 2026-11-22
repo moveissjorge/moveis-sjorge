@@ -1330,9 +1330,10 @@ body{font-weight:400}
 .pa-row .pa-ph{order:2}
 .pa-row .pa-txt{order:1}
 @media (min-width:901px){
-  .pa-row:nth-child(2){grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr)}
-  .pa-row:nth-child(2) .pa-ph{order:1}
-  .pa-row:nth-child(2) .pa-txt{order:2}
+  /* alterna foto/texto em todos os projetos pares (antes: só no 2.º) */
+  .pa-row:nth-child(even){grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr)}
+  .pa-row:nth-child(even) .pa-ph{order:1}
+  .pa-row:nth-child(even) .pa-txt{order:2}
 }
 .pa-ph{position:relative;display:block;width:100%;aspect-ratio:3/2;overflow:hidden;background:var(--stone);padding:0;border:0;cursor:pointer}
 .pa-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--ease)}
@@ -1563,3 +1564,393 @@ img,video{max-width:100%}
   .kz7 .p3-row{margin-top:clamp(28px,6vw,40px)!important}
 }
 @media (max-width:900px){#propostas-3d .p3-fig--main{display:none!important}#propostas-3d .p3-row{margin-top:clamp(28px,6vw,40px)!important}}
+
+/* Projetos 3D — faixa com scroll também no computador */
+@media (min-width:861px){#propostas-3d .kz7-row{overflow-x:auto!important}#propostas-3d .kz7-ctrl{display:grid!important}}
+#propostas-3d .kz7-ctrl{opacity:.45;transition:opacity .3s}#propostas-3d .kz7-ctrl:hover{opacity:1}
+/* Cozinhas — faixa com scroll também no computador */
+@media (min-width:861px){.kz7 .kz7-row{overflow-x:auto!important}.kz7 .kz7-ctrl{display:grid!important;opacity:.45;transition:opacity .3s}.kz7 .kz7-ctrl:hover{opacity:1}}
+
+/* Cabeçalho — menu compacto em ecrãs médios */
+@media (max-width:1180px){
+  .nav{display:flex!important;align-items:center;justify-content:space-between;padding:0 var(--pad)!important}
+  .nav-links,.nav-right-link,.nav-cta{display:none!important}
+  .nav-logo{justify-self:auto!important}
+  .logo-img{height:38px!important}
+  .nav.is-scrolled .logo-img{height:34px!important}
+  .nav-toggle{display:block!important}
+}
+@media (min-width:1181px) and (max-width:1400px){
+  .nav-links{gap:26px}.nav-right{gap:24px}
+  .nav-link,.nav-right-link,.nav-cta{font-size:11.5px;letter-spacing:.14em}
+  .logo-img{height:44px}
+}
+@media (max-width:1180px){.nav-toggle{width:26px!important;height:14px!important;padding:0!important;margin:0!important;box-sizing:content-box;transform:translateZ(0)}.nav-toggle span{position:absolute!important;left:0;right:0;width:auto!important;height:2px!important;opacity:1}.nav-toggle span:nth-child(1){top:0}.nav-toggle span:nth-child(2){top:6px}.nav-toggle span:nth-child(3){top:12px}}
+
+/* Decoração — mesmo comportamento dos Projetos 3D */
+#decoracao .p3-row{margin-top:clamp(56px,6vw,96px)!important}
+@media (max-width:900px){#decoracao .p3-fig--main{display:none!important}#decoracao .p3-row{margin-top:clamp(28px,6vw,40px)!important}}
+@media (min-width:861px){#decoracao .kz7-row{overflow-x:auto!important}#decoracao .kz7-ctrl{display:grid!important}}
+#decoracao .kz7-ctrl{opacity:.45;transition:opacity .3s}#decoracao .kz7-ctrl:hover{opacity:1}
+#decoracao .kz7-row .pw-frame{aspect-ratio:4/5!important}
+#decoracao .kz7-row .pw-frame img{object-fit:cover;object-position:50% 50%}
+
+/* Menu: botão Pedir orçamento (liga para a loja) — número só em ecrãs largos */
+.nav-cta-tel{font-weight:500}
+@media (max-width:1400px){.nav-cta-tel{display:none}}
+
+/* Rodapé mais legível (nov 2026) — antes: moradas/horário a 62% de opacidade, links a 68%, direitos/"Desde 1979" a 42% (contraste 3,6:1, abaixo do mínimo 4,5:1) */
+.fcol a{color:rgba(245,241,233,.88)!important}
+.fcol a[style*="rgba(245,241,233,.25)"],.fcol a[style*="rgba(245,241,233,.3)"]{color:rgba(245,241,233,.78)!important}
+.footer-cp,.footer-ph{color:rgba(245,241,233,.72)!important}
+.footer-cp a{color:rgba(245,241,233,.9)!important}
+.footer-up{color:rgba(245,241,233,.82)!important;border-color:rgba(245,241,233,.4)!important}
+.fcol a:hover,.footer-cp a:hover,.footer-up:hover{color:var(--gold)!important}
+
+/* ===== Projetos — grelhas editoriais, 3D em branco e fecho de contacto (nov 2026) ===== */
+.p3--white{background:var(--white)}
+.pgrid{display:grid;gap:clamp(14px,1.6vw,26px);margin-top:clamp(36px,4vw,64px)}
+.pgrid .pw-frame{height:100%}
+/* Cozinhas: 1 foto larga + 2 */
+.pgrid--kz{grid-template-columns:2fr 1fr 1fr}
+.pgrid--kz .pw-item{height:clamp(240px,26vw,420px)}
+/* Decoração: 3 verticais desencontradas */
+.pgrid--deco{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.pgrid--deco .pw-frame{aspect-ratio:4/5;height:auto}
+.pgrid--deco .pw-item:nth-child(2){margin-top:clamp(28px,4vw,72px)}
+.pgrid-more{margin-top:clamp(24px,2.4vw,36px);display:flex;justify-content:flex-end}
+/* Fecho */
+.pcta{background:var(--ivory);border-top:1px solid var(--line);padding:clamp(64px,7vw,110px) 0;text-align:center}
+.pcta-in{display:flex;flex-direction:column;align-items:center}
+.pcta-h{font-family:var(--sr);font-size:clamp(28px,3.2vw,44px);font-weight:400;line-height:1.16;letter-spacing:-.02em;color:var(--brown);margin:0 0 16px;text-wrap:balance}
+.pcta-h em{font-style:italic}
+.pcta-p{font-size:16px;line-height:1.7;color:var(--tx2);margin:0 0 32px}
+.pcta-links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 40px}
+.pcta-lnk{font-family:var(--sr);font-size:clamp(19px,1.4vw,22px);color:var(--brown);border-bottom:1px solid rgba(46,37,25,.35);padding-bottom:6px;transition:color .3s,border-color .3s}
+.pcta-lnk:hover{color:#8A6E3F;border-color:#8A6E3F}
+@media(max-width:760px){
+  .pgrid--kz{grid-template-columns:1fr 1fr}
+  .pgrid--kz .pgrid-a{grid-column:1/-1}
+  .pgrid--kz .pw-item{height:clamp(170px,46vw,260px)}
+  .pgrid--deco{gap:8px}
+  .pgrid--deco .pw-item:nth-child(2){margin-top:24px}
+  .pgrid-more{justify-content:flex-start}
+  .pcta-links{flex-direction:column;gap:18px}
+}
+
+/* Telemóvel e tablet — textos alinhados à esquerda (nov 2026)
+   Antes: nos Projetos concluídos o bloco de texto ficava centrado (o .pa-row usa align-items:center);
+   Catálogos e o fecho de contacto também estavam centrados, ao contrário do resto da página. */
+@media (max-width:900px){
+  .pa-row,.pa-row:nth-child(even){align-items:stretch!important}
+  .pa-txt{align-self:stretch!important;max-width:none!important;margin:0!important}
+  .cat-intro{text-align:left!important;margin:0 0 40px!important;max-width:none!important}
+  .cat-label{text-align:left!important}
+  .pcta{text-align:left}
+  .pcta-in{align-items:flex-start}
+  .pcta-links{justify-content:flex-start}
+}
+
+/* Catálogos — 4 categorias (nov 2026; antes 3 colunas) */
+.cat-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cat-fig--d .cat-img{aspect-ratio:4/3}
+@media (max-width:980px){.cat-row{grid-template-columns:1fr}}
+
+/* ===== Galerias — vista premium (nov 2026) =====
+   Antes: fundo semitransparente com a página desfocada por trás, setas e fechar em caixas
+   quadradas pretas, sem nome nem descrição do projeto, só "1 / 4" e "Fale connosco" soltos. */
+.gallery.gallery{background:#15120E!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  padding:0!important;display:flex;flex-direction:column}
+/* Cabeçalho: nome à esquerda, fechar à direita */
+.gallery .gallery-top{position:static!important;display:flex!important;align-items:center!important;justify-content:space-between;
+  padding:clamp(18px,2vw,28px) clamp(20px,4vw,64px)!important;margin:0!important;border:0!important}
+.gallery .gallery-top>div{display:flex!important;flex-direction:column;align-items:flex-start;gap:6px}
+.gallery .gallery-eyebrow{order:1!important;font-size:10.5px!important;font-weight:500!important;letter-spacing:.32em!important;color:#C2A673!important;margin:0!important}
+.gallery .gallery-name{order:2!important;font-family:var(--sr);font-size:clamp(24px,2.2vw,34px)!important;font-weight:400;line-height:1;color:var(--ivory)}
+.gallery .gallery-close{width:auto!important;height:auto!important;background:none!important;border:0!important;border-radius:0!important;backdrop-filter:none!important;
+  padding:8px 0 8px 12px!important;font-size:18px!important;color:rgba(245,241,233,.7)!important;transition:color .3s var(--ease)!important}
+.gallery .gallery-close:hover{color:#C2A673!important}
+/* Palco: foto ao centro, setas finas fora da foto */
+.gallery .gallery-body{flex:1;min-height:0;display:flex!important;flex-direction:column;gap:0!important;padding:0!important}
+.gallery .gallery-stage{flex:1;min-height:0;position:relative;display:flex;padding:0 clamp(72px,8vw,140px)}
+.gallery .gallery-frame{background:none!important;border:0!important}
+.gallery .gallery-frame img{box-shadow:none!important}
+.gallery .gallery-nav{width:46px!important;height:46px!important;border-radius:50%!important;background:transparent!important;backdrop-filter:none!important;
+  border:1px solid rgba(245,241,233,.22)!important;color:rgba(245,241,233,.8)!important;font-family:var(--sr);font-size:22px!important;opacity:1!important;
+  transition:border-color .3s var(--ease),color .3s var(--ease)!important}
+.gallery .gallery-nav:hover{border-color:#C2A673!important;color:#C2A673!important}
+.gallery .gallery-prev{left:clamp(16px,2.4vw,44px)!important}
+.gallery .gallery-next{right:clamp(16px,2.4vw,44px)!important}
+/* Rodapé: descrição e etiquetas à esquerda, contador e contacto à direita */
+.gallery .gallery-side{display:grid!important;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"desc count cta" "loc count cta";
+  align-items:center!important;column-gap:clamp(24px,3vw,56px)!important;row-gap:8px!important;
+  margin:clamp(16px,2vw,26px) clamp(20px,4vw,64px) 0!important;padding:clamp(16px,1.8vw,22px) 0 clamp(18px,2vw,28px)!important;
+  border:0!important;border-top:1px solid rgba(245,241,233,.12)!important;width:auto!important;align-self:stretch!important;overflow:visible!important}
+.gallery .gallery-side .proj-desc{display:block!important;grid-area:desc;max-width:72ch;margin:0!important;font-family:var(--ss)!important;
+  font-size:14.5px!important;line-height:1.6!important;color:rgba(245,241,233,.78)!important}
+.gallery .gallery-side .proj-loc{display:block!important;grid-area:loc;padding:0!important;border:0!important;width:auto!important;
+  font-size:10.5px!important;font-weight:500;letter-spacing:.24em!important;text-transform:uppercase;color:#C2A673!important}
+.gallery .gallery-side .gallery-count{grid-area:count;margin:0!important;font-family:var(--sr)!important;font-size:17px!important;letter-spacing:.12em!important;color:rgba(245,241,233,.6)!important;white-space:nowrap}
+.gallery .gallery-side .gallery-cta{grid-area:cta;display:block!important;margin:0!important;padding:0!important;border:0!important;width:auto!important}
+.gallery .gallery-cta p{display:none!important}
+.gallery .gallery-cta .btn{font-size:19px!important;white-space:nowrap}
+@media (max-width:760px){
+  .gallery .gallery-top{padding:16px 18px!important}
+  .gallery .gallery-name{font-size:24px!important}
+  .gallery .gallery-stage{padding:0}
+  .gallery .gallery-nav{width:40px!important;height:40px!important;background:rgba(21,18,14,.45)!important;border-color:rgba(245,241,233,.3)!important;font-size:19px!important}
+  .gallery .gallery-prev{left:10px!important}.gallery .gallery-next{right:10px!important}
+  .gallery .gallery-side{grid-template-columns:1fr auto;grid-template-areas:"desc desc" "loc loc" "cta count";row-gap:12px!important;margin:16px 18px 0!important;padding:16px 0 22px!important}
+  .gallery .gallery-side .proj-desc{font-size:14px!important;display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .gallery .gallery-cta .btn{font-size:18px!important}
+}
+
+/* Galerias — só imagem (nov 2026): sem nome, descrição, etiquetas nem "Fale connosco".
+   Fica: fundo escuro, foto grande, setas, fechar e um contador discreto. */
+.gallery .gallery-top{position:absolute!important;top:0;right:0;z-index:5;padding:clamp(14px,2vw,26px) clamp(16px,2.4vw,36px)!important}
+.gallery .gallery-top>div{display:none!important}
+.gallery .gallery-stage{padding:clamp(24px,3vw,48px) clamp(72px,8vw,130px) 0}
+.gallery .gallery-side{grid-template-columns:1fr!important;grid-template-areas:"count"!important;justify-items:center;border-top:0!important;
+  margin:0!important;padding:14px 0 18px!important}
+.gallery .gallery-side .proj-desc,.gallery .gallery-side .proj-loc,.gallery .gallery-side .gallery-cta{display:none!important}
+.gallery .gallery-side .gallery-count{font-size:13px!important;letter-spacing:.2em!important;color:rgba(245,241,233,.45)!important}
+@media (max-width:760px){
+  .gallery .gallery-top{padding:12px 14px!important}
+  .gallery .gallery-stage{padding:56px 0 0}
+  .gallery .gallery-side{grid-template-columns:1fr!important;grid-template-areas:"count"!important;margin:0!important;padding:14px 0 20px!important}
+}
+
+/* ===== Fecho "Pedir orçamento" — versão premium (nov 2026) =====
+   Antes: fundo marfim liso, título numa linha, 3 links soltos com algarismos "antigos". */
+.pcta.pcta{position:relative;overflow:hidden;background:#15120E;border:0;text-align:center;padding:clamp(96px,11vw,168px) 0}
+.pcta-bg{position:absolute;inset:0}
+.pcta-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block;filter:saturate(.85)}
+.pcta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,18,14,.72) 0%,rgba(21,18,14,.62) 45%,rgba(21,18,14,.86) 100%)}
+.pcta .pcta-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+.pcta-ey{font-size:11px;font-weight:500;letter-spacing:.36em;text-transform:uppercase;color:#C9A45C;margin:0 0 26px}
+.pcta .pcta-h{color:var(--ivory);font-size:clamp(34px,4.4vw,62px);line-height:1.08;letter-spacing:-.02em;margin:0 0 22px}
+.pcta .pcta-h em{color:#E6D3AC}
+.pcta .pcta-p{color:rgba(245,241,233,.78);font-size:16px;margin:0 0 clamp(44px,5vw,64px)}
+.pcta-cols{display:grid;grid-template-columns:repeat(3,minmax(0,auto));justify-content:center;border-top:1px solid rgba(245,241,233,.18);padding-top:clamp(28px,3vw,40px)}
+.pcta-col{display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 clamp(28px,3.6vw,60px);color:var(--ivory);text-decoration:none}
+.pcta-col+.pcta-col{border-left:1px solid rgba(245,241,233,.18)}
+.pcta-lbl{font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#C9A45C}
+.pcta-val{font-family:var(--sr);font-size:clamp(20px,1.7vw,26px);font-variant-numeric:lining-nums;letter-spacing:.01em;color:var(--ivory);
+  padding-bottom:4px;border-bottom:1px solid transparent;transition:color .35s var(--ease),border-color .35s var(--ease)}
+.pcta-col:hover .pcta-val{color:#E6D3AC;border-color:rgba(230,211,172,.6)}
+@media (max-width:900px){
+  .pcta.pcta{text-align:left;padding:88px 0}
+  .pcta .pcta-in{align-items:flex-start}
+  .pcta-cols{grid-template-columns:1fr;width:100%;padding-top:0}
+  .pcta-col{align-items:flex-start;padding:22px 0;border-bottom:1px solid rgba(245,241,233,.18)}
+  .pcta-col+.pcta-col{border-left:0}
+  .pcta-val{font-size:22px}
+}
+
+/* Fecho "Pedir orçamento" — mais compacto e sem linhas (nov 2026) */
+.pcta.pcta{padding:clamp(56px,6vw,88px) 0}
+.pcta-ey{margin-bottom:16px}
+.pcta .pcta-h{font-size:clamp(28px,3.2vw,44px);margin-bottom:14px}
+.pcta .pcta-p{font-size:15px;margin-bottom:clamp(26px,3vw,36px)}
+.pcta-cols{border-top:0;padding-top:0}
+.pcta-col+.pcta-col{border-left:0}
+.pcta-col{gap:6px;padding:0 clamp(22px,3vw,48px)}
+.pcta-val{font-size:clamp(18px,1.4vw,22px)}
+@media (max-width:900px){
+  .pcta.pcta{padding:60px 0}
+  .pcta-cols{gap:18px}
+  .pcta-col{padding:0;border-bottom:0}
+  .pcta-val{font-size:20px}
+}
+
+/* Fecho "Pedir orçamento" — tablet e telemóvel mais compactos (nov 2026) */
+@media (max-width:900px){
+  .pcta.pcta{padding:44px 0}
+  .pcta-ey{margin-bottom:10px;font-size:10px}
+  .pcta .pcta-h{font-size:clamp(24px,5.4vw,32px);margin-bottom:8px}
+  .pcta .pcta-p{font-size:14px;margin-bottom:22px}
+  .pcta-cols{grid-template-columns:auto auto;justify-content:start;gap:16px 36px}
+  .pcta-col:last-child{grid-column:1/-1}
+  .pcta-col{gap:3px}
+  .pcta-lbl{font-size:9.5px}
+  .pcta-val{font-size:18px;padding-bottom:0}
+}
+@media (max-width:480px){
+  .pcta.pcta{padding:38px 0}
+  .pcta .pcta-p{display:none}
+  .pcta .pcta-h{margin-bottom:20px}
+  .pcta-cols{grid-template-columns:1fr;gap:12px}
+  .pcta-val{font-size:17px}
+}
+
+/* Fecho "Pedir orçamento" — Lojas na mesma linha que Telefone e Email quando cabe (tablet) */
+@media (max-width:900px) and (min-width:481px){
+  .pcta-cols{display:flex!important;flex-wrap:wrap;gap:16px 32px}
+  .pcta-col:last-child{grid-column:auto}
+}
+
+/* Fecho "Pedir orçamento" — foto mais visível e menos texto (nov 2026)
+   Antes: foto toda escurecida por igual e cortada nas cortinas; frase "Ligue-nos…" a mais. */
+.pcta .pcta-p{display:none!important}
+.pcta .pcta-h{margin-bottom:clamp(26px,3vw,38px)!important}
+.pcta-bg img{object-position:62% 30%;filter:saturate(.95)}
+.pcta-bg::after{background:linear-gradient(90deg,rgba(21,18,14,.82) 0%,rgba(21,18,14,.62) 38%,rgba(21,18,14,.18) 75%,rgba(21,18,14,.08) 100%)}
+@media (min-width:901px){
+  .pcta.pcta{text-align:left}
+  .pcta .pcta-in{align-items:flex-start}
+  .pcta-cols{justify-content:start}
+  .pcta-col{align-items:flex-start;padding:0 clamp(28px,3vw,48px) 0 0}
+}
+@media (max-width:480px){
+  .pcta-bg img{object-position:70% 30%}
+  .pcta-bg::after{background:linear-gradient(90deg,rgba(21,18,14,.84) 0%,rgba(21,18,14,.6) 60%,rgba(21,18,14,.35) 100%)}
+}
+@media (min-width:481px){.pcta-bg img{object-position:60% 64%}}
+@media (min-width:481px){.pcta-bg::after{background:linear-gradient(90deg,rgba(21,18,14,.86) 0%,rgba(21,18,14,.74) 45%,rgba(21,18,14,.3) 72%,rgba(21,18,14,.1) 100%)}}
+
+/* ===== Fecho "Pedir orçamento" — foto inteira ao lado do texto (nov 2026)
+   Antes: foto de fundo a toda a largura, sempre cortada (a foto é quadrada). ===== */
+.pcta.pcta--split{background:#15120E;padding:clamp(56px,6vw,96px) 0;text-align:left}
+.pcta--split .pcta-bg{display:none}
+.pcta-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(40px,6vw,110px)}
+.pcta--split .pcta-in{align-items:flex-start}
+.pcta--split .pcta-cols{display:flex!important;flex-wrap:wrap;justify-content:flex-start;gap:20px 44px}
+.pcta--split .pcta-col{align-items:flex-start;padding:0!important;border:0!important}
+.pcta--split .pcta-col:last-child{grid-column:auto}
+.pcta-photo{margin:0;width:clamp(300px,30vw,460px);aspect-ratio:1/1}
+.pcta-photo img{width:100%;height:100%;object-fit:contain;display:block}
+/* Tablet: lado a lado, foto mais pequena */
+@media (max-width:900px){
+  .pcta.pcta--split{padding:48px 0}
+  .pcta-grid{gap:32px}
+  .pcta-photo{width:clamp(220px,34vw,300px)}
+  .pcta--split .pcta-cols{flex-direction:column;gap:14px}
+}
+/* Telemóvel: foto inteira em cima, texto por baixo */
+@media (max-width:600px){
+  .pcta.pcta--split{padding:0 0 40px}
+  .pcta-grid{grid-template-columns:1fr;gap:28px;padding:0!important}
+  .pcta-photo{order:-1;width:100%}
+  .pcta--split .pcta-in{padding:0 var(--pad)}
+  .pcta--split .pcta-h{margin-bottom:22px!important}
+}
+@media (max-width:600px){
+  .pcta-grid{padding:0 var(--pad)!important}
+  .pcta--split .pcta-in{padding:0}
+  .pcta-photo{width:auto;margin:0 calc(-1 * var(--pad))}
+  .pcta--split .pcta-cols{gap:12px}
+}
+
+/* Fecho "Pedir orçamento" — sem foto, fundo areia (nov 2026)
+   Antes: fundo quase preto com foto. Agora: tom areia/caramelo da paleta, texto castanho e dourado escuro. */
+.pcta.pcta--sand{background:#D9CAB0;padding:clamp(52px,5.5vw,84px) 0}
+.pcta--sand .pcta-grid{grid-template-columns:1fr;gap:0}
+.pcta--sand .pcta-in{align-items:center;text-align:center}
+.pcta--sand .pcta-ey{color:#7A5E33}
+.pcta--sand .pcta-h{color:var(--brown)}
+.pcta--sand .pcta-h em{color:#7A5E33}
+.pcta--sand .pcta-cols{justify-content:center;gap:20px 56px}
+.pcta--sand .pcta-col{align-items:center;color:var(--brown)}
+.pcta--sand .pcta-lbl{color:#7A5E33}
+.pcta--sand .pcta-val{color:var(--brown)}
+.pcta--sand .pcta-col:hover .pcta-val{color:#7A5E33;border-color:rgba(122,94,51,.55)}
+@media (max-width:900px){
+  .pcta.pcta--sand{padding:44px 0}
+  .pcta--sand .pcta-in{align-items:flex-start;text-align:left}
+  .pcta--sand .pcta-cols{flex-direction:row;justify-content:flex-start;gap:16px 32px}
+  .pcta--sand .pcta-col{align-items:flex-start}
+}
+@media (max-width:600px){
+  .pcta.pcta--sand{padding:40px 0}
+  .pcta--sand .pcta-grid{padding:0 var(--pad)!important}
+  .pcta--sand .pcta-cols{flex-direction:column;gap:12px}
+}
+
+/* ===== Projetos concluídos — ficha mais premium (nov 2026)
+   Antes: número sozinho numa linha, descrição presa a 44 caracteres, etiquetas a negrito cinzento. ===== */
+.pa-txt{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:18px;row-gap:16px;align-items:baseline;justify-items:start}
+.pa-txt>*{grid-column:1/-1}
+.pa-txt>.pa-num{grid-column:1;font-size:15px;letter-spacing:.12em;padding-right:18px;border-right:1px solid rgba(169,138,85,.5);line-height:1}
+.pa-txt>.pa-name{grid-column:2;margin:0}
+.pa-p{max-width:52ch}
+.pa-tags{font-weight:500!important;color:#8A6E3F!important;letter-spacing:.22em!important}
+.pa-lnk{margin-top:6px}
+@media (max-width:900px){
+  .pa-p{max-width:68ch!important}
+  .pa-txt{row-gap:12px}
+}
+@media (max-width:600px){
+  .pa-p{max-width:none!important}
+}
+@media (min-width:901px){
+  .pa-row,.pa-row:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)!important}
+  .pa-row:nth-child(even){grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)!important}
+  .pa-p{max-width:56ch}
+}
+@media (max-width:600px){.pa-tags{letter-spacing:.14em!important;font-size:11px!important}}
+
+/* Projetos concluídos — link "Ver projeto" pequeno e dourado (nov 2026)
+   Antes: "Explorar projeto" grande (20–23px), serifado castanho, sublinhado longo. */
+.pa-txt .pa-lnk.p3-btn{font-family:var(--ss)!important;font-size:12px!important;font-weight:500;letter-spacing:.22em!important;text-transform:uppercase;
+  color:#8A6E3F!important;border-bottom:1px solid rgba(138,110,63,.45)!important;padding:0 0 6px!important;gap:10px;margin-top:4px}
+.pa-txt .pa-lnk.p3-btn::after{font-size:12px}
+.pa-txt .pa-lnk.p3-btn:hover{color:var(--brown)!important;border-color:var(--brown)!important}
+.pa-txt .pa-lnk.p3-btn{text-transform:uppercase!important}
+@media (max-width:760px){.pa-txt .pa-lnk.p3-btn{font-size:11.5px!important;min-height:40px;align-items:flex-end;margin-top:0}}
+
+/* Projetos concluídos em telemóvel/tablet — foto primeiro, ficha por baixo e mais pequena (nov 2026)
+   Antes: texto em cima e foto por baixo, descrição a 16–17px. */
+@media (max-width:900px){
+  .pa-row .pa-ph,.pa-row:nth-child(even) .pa-ph{order:1!important}
+  .pa-row .pa-txt,.pa-row:nth-child(even) .pa-txt{order:2!important}
+  .pa-row,.pa-row:nth-child(even){gap:18px!important}
+  .pa-txt{row-gap:10px!important}
+  .pa-txt>.pa-name{font-size:28px!important}
+  .pa-txt>.pa-num{font-size:13px}
+  .pa-p{font-size:15px!important;line-height:1.65!important}
+  .pa-tags{font-size:11px!important}
+}
+
+/* Projetos concluídos em telemóvel/tablet — título em cima, foto, ficha por baixo (nov 2026) */
+@media (max-width:900px){
+  #trabalho .pa-row,#trabalho .pa-row:nth-child(even){display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;column-gap:14px;row-gap:0!important;align-items:baseline}
+  #trabalho .pa-txt{display:contents!important}
+  #trabalho .pa-num{grid-column:1;grid-row:1;order:0!important;font-size:13px;padding-right:14px}
+  #trabalho .pa-name{grid-column:2;grid-row:1;order:0!important;margin:0 0 14px!important}
+  #trabalho .pa-ph{grid-column:1/-1;grid-row:2;order:0!important;margin-bottom:16px}
+  #trabalho .pa-p{grid-column:1/-1;grid-row:3;font-size:14px!important;line-height:1.7!important;color:#7A7064!important;margin:0 0 10px!important}
+  #trabalho .pa-tags{grid-column:1/-1;grid-row:4;margin-bottom:8px}
+  #trabalho .pa-lnk{grid-column:1/-1;grid-row:5;justify-self:start}
+}
+@media (max-width:900px){
+  #trabalho .pa-row,#trabalho .pa-row:nth-child(even){align-items:center}
+  #trabalho .pa-num{align-self:center;line-height:1!important;height:1em;margin-bottom:14px}
+  #trabalho .pa-name{align-self:center;line-height:1!important}
+}
+
+/* Projetos concluídos em telemóvel/tablet — "Ver projeto" na linha do título, à direita (nov 2026)
+   Antes: link numa linha própria no fim da ficha. */
+@media (max-width:900px){
+  #trabalho .pa-row,#trabalho .pa-row:nth-child(even){grid-template-columns:auto minmax(0,1fr) auto!important}
+  #trabalho .pa-num{grid-column:1;grid-row:1}
+  #trabalho .pa-name{grid-column:2;grid-row:1}
+  #trabalho .pa-lnk{grid-column:3!important;grid-row:1!important;justify-self:end!important;align-self:center!important;
+    margin:0 0 14px!important;min-height:0!important;padding-bottom:4px!important;white-space:nowrap}
+  #trabalho .pa-ph{grid-column:1/-1}
+  #trabalho .pa-p{grid-column:1/-1;margin:0!important}
+}
+@media (max-width:380px){
+  #trabalho .pa-lnk{letter-spacing:.14em!important;font-size:11px!important}
+  #trabalho .pa-txt>.pa-name,#trabalho .pa-name{font-size:25px!important}
+}
+
+/* Decoração — no telemóvel/tablet a 1.ª foto da grelha é a principal do computador (jarra dourada) */
+.pgrid-mob{display:none!important}
+@media (max-width:900px){
+  .pgrid--deco .pgrid-desk{display:none!important}
+  .pgrid--deco .pgrid-mob{display:block!important;order:-1}
+}
+
+/* Projetos concluídos — número (01, 02…) maior (nov 2026; antes 15px no computador, 13px no telemóvel) */
+.pa-txt>.pa-num{font-size:clamp(20px,1.6vw,24px)!important;letter-spacing:.08em!important}
+@media (max-width:900px){#trabalho .pa-num{font-size:19px!important;height:auto!important;padding-right:14px}}
